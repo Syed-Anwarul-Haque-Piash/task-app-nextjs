@@ -1,4 +1,5 @@
 import AddTask from "./components/AddTask";
+import TaskList from "./components/TaskList";
 
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
         <h1 className="text-3xl font-bold">Task Application</h1>
         <AddTask></AddTask>
       </div>
+      <TaskList></TaskList>
     </main>
   )
 }
