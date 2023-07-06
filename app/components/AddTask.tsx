@@ -3,7 +3,7 @@
 const AddTask = () => {
     return (
         <div>
-            add task
+           <button className="btn btn-success w-full">Add task</button>
         </div>
     );
 };
