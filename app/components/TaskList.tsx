@@ -1,4 +1,5 @@
 import { Itask } from "@/types/Tasks";
+import Task from "./Task";
 
 interface TaskListProps{
   tasks: Itask[]
@@ -11,15 +12,15 @@ const TaskList:React.FC<TaskListProps> = ({tasks}) => {
     <thead>
       <tr>
         <th>Job</th>
-        <th>Favorite Color</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      {tasks.map(task=>
-        <tr key={task.id}>
+      {tasks.map(task=><Task task={task}></Task>)}
+        {/* <tr >
         <td>{task.text}</td>
          <td>Blue</td>
-       </tr>)}
+       </tr> */}
       {/* <tr>
        <td>Cy Ganderton</td>
         <td>Blue</td>
