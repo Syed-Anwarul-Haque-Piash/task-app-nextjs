@@ -19,3 +19,21 @@ export const addTask = async(task:Itask): Promise<Itask>=>{
     const newTask=res.json();
     return newTask
 }
+export const editTask = async(task:Itask): Promise<Itask>=>{
+    const res=await fetch(`${baseURL}/tasks/${task.id}`,{
+        method: 'PUT',
+       headers:{
+        'Content-Type': 'application/json'
+       },
+       body: JSON.stringify(task)
+    })
+    const updatedTask=res.json();
+    return updatedTask
+}
+export const deleteTask = async(id:string): Promise<void>=>{
+    await fetch(`${baseURL}/tasks/${id}`,{
+        method: 'DELETE',
+       
+    })
+   
+}

@@ -10,7 +10,7 @@
     },
     {
       "id": "3",
-      "text": "eating rice"
+      "text": "eating mango"
     },
     {
       "id": "4",
@@ -19,6 +19,10 @@
     {
       "id": "d8d33372-09d4-4e00-9fc1-345f3700a03f",
       "text": "learn nodeJS"
+    },
+    {
+      "id": "cfe5e505-1cfe-4852-b835-f60ae6f265a2",
+      "text": "learn CSS3"
     }
   ]
 }
