@@ -3,6 +3,7 @@ import { addTask } from "@/api";
 import Modal from "./Modal";
 import { FormEventHandler, useState } from 'react'
 import { useRouter } from "next/navigation";
+import { v4 as uuidv4 } from 'uuid';
 
 
 const AddTask = () => {
@@ -13,7 +14,7 @@ const AddTask = () => {
         e.preventDefault();
         //console.log(tasks)
         await addTask({
-            id: "4",
+            id: uuidv4(),
             text: tasks
         })
         setTasks("");
