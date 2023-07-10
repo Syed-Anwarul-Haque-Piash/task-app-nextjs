@@ -4,7 +4,7 @@ import {BiEdit,BiTrash} from 'react-icons/bi';
 import  {FormEventHandler, useState} from 'react'
 import Modal from "./Modal";
 import { useRouter } from "next/navigation";
-import { editTask } from "@/api";
+import { deleteTask, editTask } from "@/api";
 //import {FaTrash} from 'react-icons/fa';
 
 interface TaskProps{
@@ -26,6 +26,11 @@ const Task:React.FC<TaskProps> = ({task}) => {
        setOpenModalEdit(false)
        router.refresh();
     }
+    const handleDelete=async(id:string)=>{
+       await deleteTask(id);
+       setOpenModalDeleted(false);
+       router.refresh();
+    }
     return (
         <tr >
         <td className="w-full">{task.text}</td>
@@ -43,7 +48,13 @@ const Task:React.FC<TaskProps> = ({task}) => {
                     
                 </form>
             </Modal>
-            <BiTrash cursor="pointer" size={25} className="text-red-500"></BiTrash>
+            <BiTrash onClick={()=>setOpenModalDeleted(true)} cursor="pointer" size={25} className="text-red-500"></BiTrash>
+            <Modal openModal={openModalDeleted} setOpenModal={setOpenModalDeleted}>
+               <h3 className="text-lg">Are you sure to want delete this task?</h3>
+               <div className="modal-action">
+                 <button onClick={()=>handleDelete(task.id)} className="btn">Yes</button>
+               </div>
+            </Modal>
          </td>
         
        </tr>
